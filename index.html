@@ -1,72 +1,74 @@
+<!--initialize HTML document-->
+<!--image sources: https://blogs.library.duke.edu/blog/2023/03/08/5-titles-punk-rock-grrrls/, https://www.pewcenterarts.org/grant/alien-she-->
 <!DOCTYPE html>
   <html lang="en">
   <head>
        <meta charset="utf-8">
+       <!--setup inline CSS styles-->
        <style>
           body {
                background-color: rgb(245, 237, 237);
-               margin-left: 0;
+               margin-left: 0; /* no margins in the body so that there's no extra borders */
                margin-top: 0;
                margin-bottom: 0;
           }
+          /* setup a container within the body to create a css flexbox layout */
           .container {
                display: flex;
                width: 100%;
                height: 100vh;
           }
+          /* left side of page that holds the image */
           .half_image_container {
-               width: 50%;
-               height: 100vh;
+               width: 50%; /* 50% dimension so that it will stay half of the screen even when screen is sized down */
+               height: 100vh; /* the container spans 100% of the viewport height */
           }
           .half_image_container img {
-               width: 100%;
-               height: 100vh;
-               overflow: hidden;      
+               width: 100%; /* filled the image into the container with these dimensions */
+               height: 100vh;      
           }
           .manifesto_text, .half_image_container {
-               flex: 1;
-               /*padding: 20px;*/
+               flex: 1; /* more responsive settings so that the split screens stay the same when resizing */
                box-sizing: border-box;
                overflow: hidden;
           }
           .manifesto_text {
-               display: flex;
+               display: flex; /* right half of split screen, initializing the css flexbox */
                flex-direction: column;
                justify-content: center;
-             /*  margin-top: 30px; */
           }
+
+          /* text styles */
           h1 {
-               padding-left: 10vw;
-               font-size: 5vw;
+               padding-left: 12vw;
+               font-size: 5vw; /* responsive text! */
                font-family: cursive;
                margin-bottom: 16px;
                color: black;
-               filter: blur(.3px) url(#svgThreshold);
+               filter: blur(1.5px) url(#svgThreshold); /* svg filter to add ink bleed effect */
           }
           p {
-               padding-left: 10vw;
+               padding-left: 5vw; /* create enough space within the scrollbox so that the text is readable */
                padding-right: 100px;
-               font-size: 3vw;
+               font-size: 3vw; /* responsive text! */
                font-family: 'Courier New', Courier, monospace;
                font-variation-settings: 'wght' 100;
                color: black;
-               text-align: left;
-               letter-spacing: -2px;
-               filter: url(#distort);
+               text-align: center;
+               letter-spacing: -2px; /* smush the letters together so it can be more readable */
+               filter: url(#distort); /* distortion effect using an svg filter */
           }
           .scrollbox {
-               height: 48vh;
+               height: 48vh; /* set to a fixed and responsive height so that the poem shows one line without spoiling the rest of the manifesto */
                width: 100%;
-               /*border: 1px solid #ccc;*/
-               overflow: scroll;
-               /*padding: 10px */
+               overflow: scroll; /* this crops the scrollbox so that there is a good amount of space at the bottom of the page */
                margin-top: -20px;
           }
-          svg {
+          svg { /* honestly not sure what this is doing exactly but its somehow connected to the png file of the logo so i'm not touching it */
                position: absolute;
           }    
           .logo {
-               display: flex;
+               display: flex; /* add another flexbox so the logo can move to the center easily */
                justify-content: center;
           }
           .logo img {
@@ -78,12 +80,12 @@
        <title>Riot Grrl Manifesto</title>
   </head>
   <body>
-      <div class="container">
-          <div class="half_image_container">
+      <div class="container"><!--wrapper container-->
+          <div class="half_image_container"><!--left side of screen-->
                <img src="assets/87356570dd500937d1eeccf7224359a5.jpg">
           </div>
-          <div class="manifesto_text">
-               <svg>
+          <div class="manifesto_text"><!--right side of screen-->
+               <svg><!--got this effect from a tutorial so i can't really explain in depth but its an svg filter that can be applied using css-->
                     <defs>
                          <filter id="distort">
                               <feTurbulence baseFrequency="0.01 0.01" numOctaves="1" result="noise"/>
@@ -96,14 +98,14 @@
                                    <feFuncA class="transfer-func" type="discrete" tableValues="0 0 1" />
                                    <feFuncR class="transfer-func" type="discrete" tableValues="0 0 1" />
                               </feComponentTransfer>
-          </filter>
+                         </filter>
                     </defs>
                </svg>
-               <div class="logo">
+               <div class="logo"><!--container for logo-->
                     <img src="assets/imgbin_feminism-gender-equality-riot-grrrl-female-woman-png.png">
                </div>
-               <h1>BECAUSE</h1>
-               <div class="scrollbox">
+               <h1>BECAUSE</h1><!--header text-->
+               <div class="scrollbox"><!--poem text in paragraph tags, separated by line breaks-->
                     <p>us girls crave records and books and fanzines that speak to US that WE feel included in and can understand in our own ways.</p>
                     <br>
                     <p>we wanna make it easier for girls to see/hear each other's work so that we can share strategies and criticize-applaud each other.</p>
