@@ -3,15 +3,28 @@
   <head>
        <meta charset="utf-8">
        <style>
+          .container {
+               display: flex;
+               width: 100%;
+          }
           .half_image_container {
                width: 50%;
                height: 100vh;
                overflow: hidden;
           }
           .half_image_container img {
-               width: 100%;
+               width: 50%;
                height: 100vh;
                overflow: hidden;
+          }
+          .manifesto_text, .half_image_container {
+               flex: 1;
+               padding: 20px;
+               box-sizing: border-box;
+          }
+          .manifesto_text {
+               display: flex;
+               flex-direction: column;
           }
        </style>
        <title>Riot Grrl Manifesto</title>
@@ -19,9 +32,9 @@
   <body> <div class="container">
      <div class="half_image_container">
           <img src="assets/392060e6be90bce07d28e55886eb6e99.jpg">
-     </div1>
-     <div2>
+     </div>
+     <div class="'manifesto_text">
           <h1>BECAUSE</h1>
-     </div2>
+     </div>
   </div></body>
   </html>
